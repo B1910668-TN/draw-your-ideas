@@ -1,1 +1,9 @@
-post http://localhost:3000/api/members
+POST http://localhost:3000/api/members/
+Accept: application/json
+Content-Type: application/json
+
+{
+    "username": "Le Tuyet Nga",
+    "password": "123",
+    "email": "nga123@gmail.com"
+}
