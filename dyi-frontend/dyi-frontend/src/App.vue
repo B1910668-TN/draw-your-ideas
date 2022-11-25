@@ -1,15 +1,17 @@
 <script>
-  export default {
+  import SignUp from './components/SignUp.vue';
+  export default{
+    name:'App',
+    components:{
+      SignUp
+    }
   }
 </script>
 
 <template>
-  <h1>Hello, Vue.js!</h1>
+  <SignUp/>
 </template>
 
 <style>
-.page {
-  max-width: 400px;
-  margin: auto;
-}
+
 </style>

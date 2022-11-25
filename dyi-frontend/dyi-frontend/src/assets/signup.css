@@ -1,0 +1,55 @@
+.signup{
+    background-color: black;
+    width: 300px;
+    height: 520px;
+    opacity: 0.65;
+    position: absolute;
+    margin: 0px 100px 0px 100px;
+    border-radius: 15px;
+}
+
+.signup input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: rgb(28, 189, 218);
+    color: rgb(248, 244, 244);
+    background-color: transparent;
+    font-size: 17px;
+    margin-top: 25px;
+    display: block;
+    margin: 43px;
+    outline: none;
+    font-weight: bold;
+}
+
+.signup button{
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.signup button:hover{
+    background-color: rgb(24, 133, 187);
+    color: black;
+}
+
+
+::placeholder{
+    color: white;
+    opacity: 1;
+}
+
+.all{
+    background-color: none;
+    width: 500px;
+    height: 470px;
+    margin: 120px auto;
+}
+
+body{
+    background-image: url(../assets/img/Khu-rung-mong-mo_-5-scaled.jpg);
+    background-attachment: fixed;  
+    background-size: cover;
+    background-position: center;
+}
