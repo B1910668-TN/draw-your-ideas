@@ -1,16 +1,17 @@
+<template>
+  <AppHeader/>
+  <router-view />
+  
+</template>
+
 <script>
-  import SignUp from './components/SignUp.vue';
+  import AppHeader from '@/components/AppHeader.vue';
   export default{
-    name:'App',
     components:{
-      SignUp
+      AppHeader,
     }
   }
 </script>
-
-<template>
-  <SignUp/>
-</template>
 
 <style>
 

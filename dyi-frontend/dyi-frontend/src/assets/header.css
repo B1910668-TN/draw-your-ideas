@@ -1,0 +1,89 @@
+body{
+    background-image: url(../assets/img/Khu-rung-mong-mo_-9-scaled.jpg);
+    background-attachment: fixed;  
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-all {
+  width: 1100px;
+  margin: 50px auto 100px auto;
+  border-radius: 15px 15px 0px 0px;
+}
+
+/* Menu */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  border-radius: 15px 15px 0px 0px;
+  font-family: cursive;
+}
+
+li {
+  float: left;
+}
+
+li a,
+.dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover,
+.dropdown:hover .dropbtn {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #e9d8f4;
+  min-width: 160px;
+  font-size: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #db7093;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.title-dyi-admin {
+  font-size: 30px;
+  padding-right: 300px;
+}
+
+.title-dyi-no {
+  font-size: 30px;
+  padding-right: 540px;
+}
+
+.menu-list {
+  font-size: 22px;
+}
