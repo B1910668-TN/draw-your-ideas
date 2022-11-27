@@ -5,15 +5,17 @@ body{
     background-position: center;
 }
 
-.bg-all {
+#bg-all {
   width: 1100px;
-  margin: 50px auto 100px auto;
+  margin: 50px auto 30px auto;
   border-radius: 15px 15px 0px 0px;
+  z-index: 2;
+  position: relative;
 }
 
 /* Menu */
 
-ul {
+#bg-all ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -23,11 +25,11 @@ ul {
   font-family: cursive;
 }
 
-li {
+#bg-all li {
   float: left;
 }
 
-li a,
+#bg-all li a,
 .dropbtn {
   display: inline-block;
   color: white;
@@ -36,28 +38,28 @@ li a,
   text-decoration: none;
 }
 
-li a:hover,
+#bg-all li a:hover,
 .dropdown:hover .dropbtn {
   background-color: #333;
   color: white;
   font-weight: bold;
 }
 
-li.dropdown {
+#bg-all li.dropdown {
   display: inline-block;
 }
 
-.dropdown-content {
+#bg-all .dropdown-content {
   display: none;
-  position: absolute;
+  position: fixed;
   background-color: #e9d8f4;
   min-width: 160px;
   font-size: 15px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 2;
 }
 
-.dropdown-content a {
+#bg-all .dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -65,12 +67,12 @@ li.dropdown {
   text-align: left;
 }
 
-.dropdown-content a:hover {
+#bg-all .dropdown-content a:hover {
   background-color: #db7093;
   color: white;
 }
 
-.dropdown:hover .dropdown-content {
+#bg-all .dropdown:hover .dropdown-content {
   display: block;
 }
 
@@ -86,4 +88,22 @@ li.dropdown {
 
 .menu-list {
   font-size: 22px;
+}
+
+div.foot{
+  clear: both;
+  background-color: black;
+  border-radius: 0px 0px 15px 15px;
+  color: white;
+  width: 1101px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.foot div{
+  width: 500px;
+  margin: 0px auto 0px auto;
+  text-align: center;
+  padding-top: 0.3px;
+  font-family: cursive;
 }
