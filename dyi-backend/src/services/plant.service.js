@@ -6,11 +6,15 @@ class PlantService{
     }
 
     //Define methods for accessing the database
-
+    
     #getPlant(payload){
         const plant = {...payload};
         const plantProperties = [
-            "name", "mean", "story", "type"
+            "name", 
+            "mean", 
+            "story", 
+            "type", 
+            "author"
         ];
         //Remove non-plant properties
         Object.keys(plant).forEach(function(key){
@@ -27,6 +31,7 @@ class PlantService{
         return {id, ...plant};
     }
 
+    
     async all(){
         return await this.plants.select('*');
     }
@@ -36,8 +41,18 @@ class PlantService{
             .where('name', 'like', `%${name}%`)
             .select('*');
     }
+
+    async findById(id){
+        return await this.plants.where('id', id).select('*').first();
+    }
+
+    async updatePlant(id, payload){
+        const update = this.#getPlant(payload);
+        return await this.plants.where('id', id).update(update);
+    }
+
+    async delelePlant(id){
+        return await this.plants.where('id', id).del();
+    }
 }
-
-
-
 module.exports = PlantService;

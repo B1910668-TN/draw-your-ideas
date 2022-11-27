@@ -23,7 +23,7 @@ app.route('/api/plants')
 app.route('/api/plants/randomplants')
     .get(plantController.randomPlant);
 
-app.route('api/plants/:id')
+app.route('/api/plants/:id')
     .get(plantController.findOnePlant)
     .put(plantController.updatePlant)
     .delete(plantController.deletePlant);
