@@ -1,9 +1,30 @@
-POST http://localhost:3000/api/members/
+
+GET http://localhost:3000/api/plants/randomplants?type=Fruit&quality=3
+
+###
+
+Post http://localhost:3000/api/plants/
 Accept: application/json
 Content-Type: application/json
 
 {
-    "username": "Le Tuyet Nga something",
-    "password": "123",
-    "email": "nga123@gmail.com"
+    "name": "Trái mít",
+    "type": "fruit",
+    "author": "admin"
+}
+
+###
+
+GET http://localhost:3000/api/plants/
+
+###
+
+Post http://localhost:3000/api/users/
+Accept: application/json
+Content-Type: application/json
+
+{
+    "username": "nga123",
+    "password": "nga123",
+    "email": "nga@gmail.com"
 }

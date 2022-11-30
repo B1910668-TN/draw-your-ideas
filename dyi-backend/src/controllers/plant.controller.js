@@ -113,6 +113,24 @@ exports.deletePlant = async(req, res, next) => {
     }
 };
 
-exports.randomPlant = async(req, res) => {
-    return res.send({message: 'Lấy ngẫu nhiên thực vật'});
-};
+
+//Random Plants
+exports.randomPlant = async (req, res, next) => {
+    let plants = [];
+
+    try{
+        const plantService = new PlantService();
+        const {type} = req.query;
+        const {quality} = req.query;
+        if(type && quality){
+            plants = await plantService.randomPlant(type,quality);
+        }
+    }catch(error){
+        console.log(error);
+        return next(
+            new ApiError(500, "Đã có lỗi xảy ra khi truy xuất thực vật")
+        );
+    }
+
+    return res.send(plants);
+}

@@ -6,6 +6,7 @@ const app = express();
 
 const plantController = require('./controllers/plant.controller');
 const animalController = require('./controllers/animal.controller');
+const userController = require('./controllers/user.controller');
 
 app.use(cors());
 app.use(express.json());
@@ -34,13 +35,19 @@ app.route('/api/animals')
     .get(animalController.findAllAnimal)
     .post(animalController.createAnimal);
 
-app.route('/api/animals.randomanimals')
+app.route('/api/animals/randomanimals')
     .get(animalController.randomAnimal);
 
 app.route('api/animals/:id')
     .get(animalController.findOneAnimal)
     .put(animalController.updateAnimal)
     .delete(animalController.deleteAnimal);
+
+//Noi that
+
+app.route('/api/users')
+    .post(userController.createUser);
+
 
 app.use((req, res, next) => {
     return next(new ApiError(404, 'Không tìm được trang!'));

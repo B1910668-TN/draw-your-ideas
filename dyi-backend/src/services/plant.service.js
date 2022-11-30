@@ -14,7 +14,8 @@ class PlantService{
             "mean", 
             "story", 
             "type", 
-            "author"
+            "author",
+            "quantity"
         ];
         //Remove non-plant properties
         Object.keys(plant).forEach(function(key){
@@ -33,7 +34,7 @@ class PlantService{
 
     
     async all(){
-        return await this.plants.select('*');
+        return await this.plants.select('*').limit(5);
     }
 
     async findByName(name){
@@ -53,6 +54,14 @@ class PlantService{
 
     async delelePlant(id){
         return await this.plants.where('id', id).del();
+    }
+
+    async randomPlant(type, quantity){
+        return await this.plants
+            .select('*')
+            .where('type', type)
+            .orderByRaw('RAND()')
+            .limit(quantity);
     }
 }
 module.exports = PlantService;
