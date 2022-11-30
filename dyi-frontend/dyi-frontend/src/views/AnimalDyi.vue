@@ -1,20 +1,20 @@
 <template>
-    <h1>Thực vật</h1>
+    <h1>Động vật</h1>
     <div class="page row space">
         <div class="col-sm-7 page-input">
             <InputSearch v-model="searchText"/>
         </div>
         <div class="mt-3 col-md-6">
             <h4>
-                Danh sách thực vật
+                Danh sách động vật
             </h4>
-            <PlantList
-                v-if="filteredPlantsCount > 0"
-                :plants="filteredPlants"
+            <AnimalList
+                v-if="filteredAnimalsCount > 0"
+                :animals="filteredAnimals"
                 v-model:activeIndex="activeIndex"
             />
             <p v-else>
-                Không có thực vật nào @-@
+                Không có động vật nào @-@
             </p>
 
             <div class="mt-3 row justify-content-around align-items-center test">
@@ -25,7 +25,7 @@
                     <i class="fas fa-redo"/>Làm mới
                 </button>
                 <router-link :to="{
-                    name: 'plant.create',
+                    name: 'animal.create',
                 }">
                     <button class="btn btn-sm btn-success" @click="goToAddContact">
                         <i class="fas fa-plus" /> Thêm mới
@@ -34,15 +34,15 @@
             </div>
         </div>
         <div class="mt-3 col-md-6">
-            <div v-if="activePlant" class="detail">
+            <div v-if="activeAnimal" class="detail">
                 <h4>
-                    Chi tiết thực vật
+                    Chi tiết động vật
                 </h4>
-                <PlantCard :plant="activePlant"/>
+                <AnimalCard :animal="activeAnimal"/>
                 <router-link
                     :to="{
-                        name: 'plant.edit',
-                        params: {id: activePlant.id},
+                        name: 'animal.edit',
+                        params: {id: activeAnimal.id},
                     }"
                 >
                     <span class="mt-2 badge badge-warning">
@@ -56,20 +56,20 @@
 
 <script>
 import InputSearch from '@/components/InputSearch.vue';
-import PlantList from '@/components/PlantList.vue';
-import PlantCard from '@/components/PlantCard.vue';
-import { plantService } from '@/services/plant.service';
+import AnimalList from '@/components/AnimalList.vue';
+import AnimalCard from '@/components/AnimalCard.vue';
+import { animalService } from '@/services/animal.service';
 
     export default{
         components:{
             InputSearch,
-            PlantList,
-            PlantCard
+            AnimalList,
+            AnimalCard
         },
 
         data(){
             return{
-                plants:[],
+                animals:[],
                 activeIndex: -1,
                 searchText: '',
             };
@@ -82,36 +82,36 @@ import { plantService } from '@/services/plant.service';
         },
 
         computed:{
-            plantsAsStrings(){
-                return this.plants.map((plant) => {
-                    const {name, mean, story, type, author} = plant;
+            animalsAsStrings(){
+                return this.animals.map((animal) => {
+                    const {name, mean, story, type, author} = animal;
                     return [name, mean, story, type, author].join('');
                 });
             },
 
-            //Return plants filtered by the search box
-            filteredPlants(){
-                if(!this.searchText) return this.plants;
-                return this.plants.filter((plant, index) => 
-                    this.plantsAsStrings[index].includes(this.searchText)
+            //Return animals filtered by the search box
+            filteredAnimals(){
+                if(!this.searchText) return this.animals;
+                return this.animals.filter((animal, index) => 
+                    this.animalsAsStrings[index].includes(this.searchText)
                 );
             },
 
-            activePlant(){
+            activeAnimal(){
                 if(this.activeIndex < 0) return null;
-                return this.filteredPlants[this.activeIndex];
+                return this.filteredAnimals[this.activeIndex];
             },
 
-            filteredPlantsCount(){
-                return this.filteredPlants.length;
+            filteredAnimalsCount(){
+                return this.filteredAnimals.length;
             },
         },
 
         methods:{
-            async retrievePlants(){
+            async retrieveAnimals(){
                 try{
-                    const plantsList = await plantService.getMany();
-                    this.plants = plantsList.sort((current, next) =>
+                    const animalsList = await animalService.getMany();
+                    this.animals = animalsList.sort((current, next) =>
                         current.name.localeCompare(next.name)
                     );
                 }catch(error){
@@ -120,12 +120,12 @@ import { plantService } from '@/services/plant.service';
             },
 
             refreshList(){
-                this.retrievePlants();
+                this.retrieveAnimals();
                 this.activeIndex = -1;
             },
 
-            goToAddPlant(){
-                this.$router.push({name: 'plant.add'});
+            goToAddAnimal(){
+                this.$router.push({name: 'animal.add'});
             },
         },
         mounted(){

@@ -1,20 +1,20 @@
 <template>
-    <h1>Thực vật</h1>
+    <h1>Nội thất</h1>
     <div class="page row space">
         <div class="col-sm-7 page-input">
             <InputSearch v-model="searchText"/>
         </div>
         <div class="mt-3 col-md-6">
             <h4>
-                Danh sách thực vật
+                Danh sách nội thất
             </h4>
-            <PlantList
-                v-if="filteredPlantsCount > 0"
-                :plants="filteredPlants"
+            <InteriorList
+                v-if="filteredInteriorsCount > 0"
+                :interiors="filteredInteriors"
                 v-model:activeIndex="activeIndex"
             />
             <p v-else>
-                Không có thực vật nào @-@
+                Không có nội thất nào @-@
             </p>
 
             <div class="mt-3 row justify-content-around align-items-center test">
@@ -25,7 +25,7 @@
                     <i class="fas fa-redo"/>Làm mới
                 </button>
                 <router-link :to="{
-                    name: 'plant.create',
+                    name: 'interior.create',
                 }">
                     <button class="btn btn-sm btn-success" @click="goToAddContact">
                         <i class="fas fa-plus" /> Thêm mới
@@ -34,15 +34,15 @@
             </div>
         </div>
         <div class="mt-3 col-md-6">
-            <div v-if="activePlant" class="detail">
+            <div v-if="activeInterior" class="detail">
                 <h4>
-                    Chi tiết thực vật
+                    Chi tiết nội thất
                 </h4>
-                <PlantCard :plant="activePlant"/>
+                <InteriorCard :interior="activeInterior"/>
                 <router-link
                     :to="{
-                        name: 'plant.edit',
-                        params: {id: activePlant.id},
+                        name: 'interior.edit',
+                        params: {id: activeInterior.id},
                     }"
                 >
                     <span class="mt-2 badge badge-warning">
@@ -56,20 +56,20 @@
 
 <script>
 import InputSearch from '@/components/InputSearch.vue';
-import PlantList from '@/components/PlantList.vue';
-import PlantCard from '@/components/PlantCard.vue';
-import { plantService } from '@/services/plant.service';
+import InteriorList from '@/components/InteriorList.vue';
+import InteriorCard from '@/components/InteriorCard.vue';
+import { interiorService } from '@/services/interior.service';
 
     export default{
         components:{
             InputSearch,
-            PlantList,
-            PlantCard
+            InteriorList,
+            InteriorCard
         },
 
         data(){
             return{
-                plants:[],
+                interiors:[],
                 activeIndex: -1,
                 searchText: '',
             };
@@ -82,36 +82,36 @@ import { plantService } from '@/services/plant.service';
         },
 
         computed:{
-            plantsAsStrings(){
-                return this.plants.map((plant) => {
-                    const {name, mean, story, type, author} = plant;
+            interiorsAsStrings(){
+                return this.interiors.map((interior) => {
+                    const {name, mean, story, type, author} = interior;
                     return [name, mean, story, type, author].join('');
                 });
             },
 
-            //Return plants filtered by the search box
-            filteredPlants(){
-                if(!this.searchText) return this.plants;
-                return this.plants.filter((plant, index) => 
-                    this.plantsAsStrings[index].includes(this.searchText)
+            //Return interiors filtered by the search box
+            filteredInteriors(){
+                if(!this.searchText) return this.interiors;
+                return this.interiors.filter((interior, index) => 
+                    this.interiorsAsStrings[index].includes(this.searchText)
                 );
             },
 
-            activePlant(){
+            activeInterior(){
                 if(this.activeIndex < 0) return null;
-                return this.filteredPlants[this.activeIndex];
+                return this.filteredInteriors[this.activeIndex];
             },
 
-            filteredPlantsCount(){
-                return this.filteredPlants.length;
+            filteredInteriorsCount(){
+                return this.filteredInteriors.length;
             },
         },
 
         methods:{
-            async retrievePlants(){
+            async retrieveInteriors(){
                 try{
-                    const plantsList = await plantService.getMany();
-                    this.plants = plantsList.sort((current, next) =>
+                    const interiorsList = await interiorService.getMany();
+                    this.interiors = interiorsList.sort((current, next) =>
                         current.name.localeCompare(next.name)
                     );
                 }catch(error){
@@ -120,12 +120,12 @@ import { plantService } from '@/services/plant.service';
             },
 
             refreshList(){
-                this.retrievePlants();
+                this.retrieveInteriors();
                 this.activeIndex = -1;
             },
 
-            goToAddPlant(){
-                this.$router.push({name: 'plant.add'});
+            goToAddInterior(){
+                this.$router.push({name: 'interior.add'});
             },
         },
         mounted(){

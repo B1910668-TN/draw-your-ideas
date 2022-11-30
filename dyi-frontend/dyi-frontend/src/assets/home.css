@@ -1,11 +1,10 @@
 .bg {
     width: 1100px;
     height: auto;
-    background-color: white;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 250px;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 15px 15px 15px 15px;
+    background-color: white;
 }
 
 .page-input{
@@ -14,7 +13,7 @@
     margin-top: 45px;
 }
 
-.plant-list{
+.list{
     margin-left: 25px;
     font-size: 15px;
     width: 325px;
@@ -26,8 +25,17 @@
     padding-left: 150px;
 }
 
-.detail-plant{
+.detail{
     margin-right: 10px;
     text-align: left;
     font-size: 18px;
+}
+
+h4{
+    font-size: 35px;
+    color: black;
+}
+
+.space{
+    margin-bottom: 100px;
 }

@@ -14,8 +14,8 @@
                 <a href="#">Edit</a>
                 <div class="dropdown-content">
                     <a href="/plantdyi">Thực vật</a>
-                    <a href="#">Động vật</a>
-                    <a href="#">Nội thất</a>
+                    <a href="/animaldyi">Động vật</a>
+                    <a href="/interiordyi">Nội thất</a>
                 </div>
             </li>
         </ul>

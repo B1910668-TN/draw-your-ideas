@@ -1,7 +1,7 @@
 <script>
     export default {
         props: {
-            plants: { type: Array, default: () => [] },
+            animals: { type: Array, default: () => [] },
             activeIndex: { type: Number, default: -1 },
         },
         emits: ['update:activeIndex'],
@@ -16,12 +16,12 @@
     <ul class="list-group list">
         <li
             class="list-group-item"
-            v-for="(plant, index) in plants"
-            :key="plant.id"
+            v-for="(animal, index) in animals"
+            :key="animal.id"
             :class="{ active: index === activeIndex }"
             @click="updateActiveIndex(index)"
         >
-            {{ plant.name }}
+            {{ animal.name }}
         </li>
     </ul>
 </template>

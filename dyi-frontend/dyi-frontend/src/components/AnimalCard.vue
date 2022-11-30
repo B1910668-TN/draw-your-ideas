@@ -1,7 +1,7 @@
 <script>
 export default {
     props: {
-        plant: { type: Object, required: true },
+        animal: { type: Object, required: true },
     },
 };
 </script>
@@ -10,23 +10,23 @@ export default {
     <div>
         <div class="p-1">
             <strong>Tên:</strong>
-            {{ plant.name }}
+            {{ animal.name }}
         </div>
         <div class="p-1">
             <strong>Ý nghĩa:</strong>
-            {{ plant.mean }}
+            {{ animal.mean }}
         </div>
         <div class="p-1">
             <strong>Câu chuyện:</strong>
-            {{ plant.story }}
+            {{ animal.story }}
         </div>
         <div class="p-1">
             <strong>Loại:</strong>
-            {{ plant.type }}
+            {{ animal.type }}
         </div>
         <div class="p-1">
             <strong>Người thêm:</strong>
-            {{ plant.author }}
+            {{ animal.author }}
         </div>
     </div>
 </template>

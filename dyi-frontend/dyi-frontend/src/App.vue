@@ -2,8 +2,9 @@
   <div class="bg">
     <AppHeader />
       <router-view />
-  </div>
     <AppFooter/>
+  </div>
+
 </template>
 
 <script>
