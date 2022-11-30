@@ -7,7 +7,9 @@ const app = express();
 const plantController = require('./controllers/plant.controller');
 const animalController = require('./controllers/animal.controller');
 const interiorController = require('./controllers/interior.controller');
-const userController = require('./controllers/user.controller');
+const randomController = require('./controllers/random.controller');
+
+//const userController = require('./controllers/user.controller');
 
 app.use(cors());
 app.use(express.json());
@@ -58,9 +60,10 @@ app.route('/api/interiors/:id')
     .put(interiorController.updateInterior)
     .delete(interiorController.deleteInterior);
 
-//Thanh vien
-app.route('/api/users')
-    .post(userController.createUser);
+//Random
+
+app.route('/api/randoms/')
+    .get(randomController.randomAll);
 
 
 app.use((req, res, next) => {

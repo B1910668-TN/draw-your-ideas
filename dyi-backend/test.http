@@ -71,3 +71,14 @@ Content-Type: application/json
 
 GET http://localhost:3000/api/animals/
 
+###
+
+GET http://localhost:3000/api/randoms?test=thucvat&type=hoa&quality=1
+
+###
+
+GET http://localhost:3000/api/randoms?test=dongvat&type=saubo&quality=1
+
+###
+
+GET http://localhost:3000/api/randoms?test=noithat&type=ban&quality=1
