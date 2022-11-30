@@ -17,3 +17,4 @@ async function createPlant(plant){
     const [id] = await this.plants.insert(plant);
     return {id, ...plant};
 }
+

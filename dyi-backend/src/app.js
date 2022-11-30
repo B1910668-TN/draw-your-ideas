@@ -6,6 +6,7 @@ const app = express();
 
 const plantController = require('./controllers/plant.controller');
 const animalController = require('./controllers/animal.controller');
+const interiorController = require('./controllers/interior.controller');
 const userController = require('./controllers/user.controller');
 
 app.use(cors());
@@ -38,13 +39,26 @@ app.route('/api/animals')
 app.route('/api/animals/randomanimals')
     .get(animalController.randomAnimal);
 
-app.route('api/animals/:id')
+app.route('/api/animals/:id')
     .get(animalController.findOneAnimal)
     .put(animalController.updateAnimal)
     .delete(animalController.deleteAnimal);
 
 //Noi that
 
+app.route('/api/interiors')
+    .get(interiorController.findAllInterior)
+    .post(interiorController.createInterior);
+
+app.route('/api/interiors/randominteriors')
+    .get(interiorController.randomInterior);
+
+app.route('/api/interiors/:id')
+    .get(interiorController.findOneInterior)
+    .put(interiorController.updateInterior)
+    .delete(interiorController.deleteInterior);
+
+//Thanh vien
 app.route('/api/users')
     .post(userController.createUser);
 

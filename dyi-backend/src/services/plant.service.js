@@ -34,7 +34,7 @@ class PlantService{
 
     
     async all(){
-        return await this.plants.select('*').limit(5);
+        return await this.plants.select('*');
     }
 
     async findByName(name){

@@ -1,5 +1,5 @@
-
-GET http://localhost:3000/api/plants/randomplants?type=Fruit&quality=3
+### TEST PLANT
+GET http://localhost:3000/api/plants/randomplants?type=Test&quality=3
 
 ###
 
@@ -15,7 +15,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/api/plants/
+GET http://localhost:3000/api/plants/3
 
 ###
 
@@ -24,7 +24,50 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "username": "nga123",
-    "password": "nga123",
-    "email": "nga@gmail.com"
+    "username": "admin",
+    "password": "admin",
+    "email": "admin@gmail.com"
 }
+
+##### TEST INTERIOR
+
+
+GET http://localhost:3000/api/interiors/randominteriors?type=ban&quality=1
+
+###
+
+POST  http://localhost:3000/api/interiors/
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Den",
+    "type": "den",
+    "author": "admin"
+}
+
+###
+
+GET http://localhost:3000/api/interiors/3
+
+##### TEST ANIMAL
+
+
+GET http://localhost:3000/api/animals/randomanimals?type=saubo&quality=1
+
+###
+
+PUT http://localhost:3000/api/animals/5
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Cá mập đầu búa",
+    "type": "ca",
+    "author": "admin"
+}
+
+###
+
+GET http://localhost:3000/api/animals/
+
